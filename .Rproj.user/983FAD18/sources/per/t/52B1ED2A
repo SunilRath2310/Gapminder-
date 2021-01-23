@@ -1,0 +1,32 @@
+{
+    "id": "52B1ED2A",
+    "path": null,
+    "project_path": null,
+    "type": "r_dataframe",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1611160711478.0,
+    "source_on_save": false,
+    "relative_order": 5,
+    "properties": {
+        "expression": "caffeine",
+        "caption": "caffeine",
+        "totalObservations": 100,
+        "displayedObservations": 100,
+        "variables": 5,
+        "cacheKey": "083A5967",
+        "object": "caffeine",
+        "environment": "",
+        "contentUrl": "grid_resource/gridviewer.html?env=&obj=caffeine&cache_key=083A5967&max_cols=50",
+        "preview": 0
+    },
+    "folds": "",
+    "lastKnownWriteTime": 8080056003806104108,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1611160711478,
+    "read_only": false,
+    "read_only_alternatives": []
+}

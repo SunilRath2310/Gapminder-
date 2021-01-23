@@ -1,0 +1,32 @@
+{
+    "id": "D3DCF77B",
+    "path": null,
+    "project_path": null,
+    "type": "r_dataframe",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1611119082883.0,
+    "source_on_save": false,
+    "relative_order": 3,
+    "properties": {
+        "expression": "my_data",
+        "caption": "my_data",
+        "totalObservations": 73,
+        "displayedObservations": 73,
+        "variables": 3,
+        "cacheKey": "0ABEDA12",
+        "object": "my_data",
+        "environment": "",
+        "contentUrl": "grid_resource/gridviewer.html?env=&obj=my_data&cache_key=0ABEDA12&max_cols=50",
+        "preview": 0
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1611119006,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1611119082883,
+    "read_only": false,
+    "read_only_alternatives": []
+}

@@ -1,0 +1,56 @@
+rm(list=ls())
+caffeine <- read.table("https://raw.githubusercontent.com/ndphillips/ThePiratesGuideToR/master/data/caffeinestudy.txt")
+caffeine
+caffeine %>%
+    group_by(gender)%>%
+    summarise(
+      mean(age)
+    )
+caffeine%>%
+    group_by(drink)%>%
+    summarise(
+      mean(age)
+    )
+caffeine%>%
+  group_by(drink,gender)%>%
+  summarise(
+    mean(age)
+  )
+
+caffeine%>%
+    group_by(age)%>%
+    summarise(
+      median(score)
+    )
+
+
+caffeine%>%
+  filter(gender =="male")%>%
+  group_by(age)%>%
+  summarise(
+    max(score)
+  )
+
+statsbydrink <- caffeine%>%
+    group_by(drink)%>%
+    summarise(
+      mean(score),
+      median(score),
+      max(score),
+      sd(score)
+    )
+
+statsbydrink
+
+caffeine%>%
+  filter(gender=="female" & age>20)%>%
+  group_by(drink, cups)%>%
+  summarize(
+    mean(score),
+    median(score),
+    max(score),
+    sd(score),
+    freq= n()
+  )
+
+View(caffeine)

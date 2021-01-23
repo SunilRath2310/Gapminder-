@@ -1,0 +1,25 @@
+{
+    "id": "1F5894E8",
+    "path": "~/R/New Project/Yarrr Project/gapminder.R",
+    "project_path": "gapminder.R",
+    "type": "r_source",
+    "hash": "1467622127",
+    "contents": "",
+    "dirty": false,
+    "created": 1611305149848.0,
+    "source_on_save": false,
+    "relative_order": 6,
+    "properties": {
+        "tempName": "Untitled2",
+        "cursorPosition": "55,1",
+        "scrollLine": "40"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1611412544,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1611412544442,
+    "read_only": false,
+    "read_only_alternatives": []
+}

@@ -1,0 +1,93 @@
+library(gapminder)
+library(ggplot2)
+library(knitr)
+library(dplyr)
+options(scipen=999)
+
+theme_set(theme_minimal())
+
+?gapminder
+kable(head(gapminder))
+names(gapminder)
+str(gapminder)
+unique(gapminder$country)
+length(unique(gapminder$country))
+
+
+#Creating a dataframe for the year 2007
+GDP2007 <- gapminder %>%  
+  filter(year=="2007") 
+  
+kable(GDP2007)  
+
+
+#Plotting distribution of GDP(histogram) of all countries in the year 2007
+ggplot(GDP2007, aes(x=gdpPercap)) + 
+  geom_histogram( fill="red",bins=30, alpha=0.4) + 
+  labs(x = "GDP Per Capita", y = "No of countries", title = "Distribution of GDP per capita in 2007")
+
+
+#Scatter plot of GDP per Capita of all countries  in 2007 coloured by Continent
+
+ggplot(GDP2007, aes(x=country, y=gdpPercap, color = continent))+
+  geom_point()+
+  labs( y="GDP per Capita", title = "GDP per Capita for all countries in 2007", color= "Continent")+
+  theme(axis.text.x= element_blank())+
+  theme(axis.ticks.x=element_blank())+
+  theme(axis.title.x = element_blank())
+  
+#Bar Chart of GDP per Capita by Continent in 2007
+ggplot(GDP2007, aes(x=continent, y= gdpPercap))+
+  geom_bar(fill="violet", alpha=0.7, stat="identity")+
+  labs(x="Continent", y="GDP per Capita", title= "GDP per capita for 2007 by Continent")
+
+
+#Top 10 countries by GDP per Capita  
+GDP2007_top10 <- head(arrange(GDP2007, desc(gdpPercap)), n=10)
+GDP2007_top10
+kable(GDP2007_top10)
+
+
+#Another method to get the top 10 countries
+#GDP2007_ordered <- GDP2007 %>% arrange(desc(gdpPercap))
+#GDP2007_top10 <- GDP2007_ordered[1:10, ]
+
+#Another method to get the top 10 countries
+#GDP2007 %>% slice_max(gdpPercap, n=10)
+
+
+#Bar chart of top 10 countries by GDP in 2007
+ggplot(GDP2007_top10, aes(x=reorder(country, -gdpPercap), y= gdpPercap)) + 
+  geom_bar(fill="purple",color="black", alpha= 0.3, stat="identity")+
+  labs(x="Country", y="GDP per Capita", title="GDP per Capita for top 10 countries in 2007")
+  
+
+#Creating a dataframe for India and China
+indchiGDP <- gapminder %>% 
+              filter(country=="India" | country=="China") %>% 
+              arrange(year)
+
+indchiGDP
+
+
+#GDP per capita for India over the years
+ggplot(indchiGDP, aes(x=year, y= gdpPercap)) +
+  geom_point(aes(color=country))+
+  geom_smooth(aes(color=country),se= FALSE)+
+  labs(x= "Year", y="GDP Per Capita", title = "GDP per Capita for India and China")
+  
+
+#Calculating GDP change in a year
+indchiGDPchange <- indchiGDP %>% 
+  group_by(country) %>% 
+  mutate(GDP_growth = (gdpPercap - lag(gdpPercap))/lag(gdpPercap)*100)
+  #mutate(GDP_growth_from_beg = (gdpPercap - first(gdpPercap))/first(gdpPercap)*100)
+
+indchiGDPchange
+
+
+#Plotting time series of %change of GDP for India 
+ggplot(indchiGDPchange, aes(x=year, y= GDP_growth))+
+  geom_line(aes(color=country))+
+  labs(x="Year", y="GDP Growth %", title="India GDP Growth %")
+         
